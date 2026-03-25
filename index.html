@@ -1094,13 +1094,16 @@
       margin-top: 0.8rem;
       margin-bottom: 1.2rem;
     }
-    .data-nar__heading em { color: var(--c-terra-soft); }
+    .data-nar__heading em { color: var(--c-terra); }
 
     .data-nar__intro {
       font-size: 1.15rem;
-      color: rgba(250, 246, 240, 0.6);
+      color: var(--c-muted);
       line-height: 1.8;
     }
+    /* Dark bg overrides */
+    [data-module="data-narrative"] .data-nar__heading em { color: var(--c-terra-soft); }
+    [data-module="data-narrative"] .data-nar__intro { color: rgba(250, 246, 240, 0.6); }
 
     .data-grid {
       display: grid;
@@ -1110,11 +1113,16 @@
 
     .data-card {
       padding: 2.2rem 1.8rem;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--c-border);
+      background: var(--c-paper-warm);
       text-align: left;
       position: relative;
       overflow: hidden;
+    }
+    /* Dark bg override */
+    [data-module="data-narrative"] .data-card {
+      border-color: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02);
     }
 
     .data-card::before {
@@ -1138,7 +1146,7 @@
       font-size: clamp(3rem, 5vw, 4rem);
       font-weight: 300;
       line-height: 1;
-      color: var(--c-terra-soft);
+      color: var(--c-terra);
       margin-bottom: 0.6rem;
     }
 
@@ -1148,15 +1156,19 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(250, 246, 240, 0.8);
+      color: var(--c-ink-soft);
       margin-bottom: 0.4rem;
     }
 
     .data-card__context {
       font-size: 1rem;
-      color: rgba(250, 246, 240, 0.5);
+      color: var(--c-muted);
       line-height: 1.6;
     }
+    /* Dark bg overrides */
+    [data-module="data-narrative"] .data-card__number { color: var(--c-terra-soft); }
+    [data-module="data-narrative"] .data-card__label { color: rgba(250, 246, 240, 0.8); }
+    [data-module="data-narrative"] .data-card__context { color: rgba(250, 246, 240, 0.5); }
 
     /* grid pattern deco */
     .data-deco {
@@ -1582,41 +1594,34 @@
           </button>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════
-       MODULE: DATA-NARRATIVE
-       — Supporting data for cover story — sits right after it
-  ════════════════════════════════════════════ -->
-  <section data-module="data-narrative" class="mod-pad">
-    <div class="data-deco"></div>
-    <div class="mod-inner" style="position:relative;">
-      <div class="data-nar__header" data-reveal>
-        <p class="mod-label">The Landscape</p>
-        <h2 class="mod-heading data-nar__heading">AI Is Already in Your <em>Waiting Room</em></h2>
-        <p class="data-nar__intro">These aren't projections. This is what's happening right now across the practices we surveyed for this issue.</p>
-      </div>
-      <div class="data-grid">
-        <div class="data-card" data-reveal data-delay="1" data-counter="67" data-suffix="%">
-          <div class="data-card__number">0%</div>
-          <div class="data-card__label">Of adults under 35</div>
-          <div class="data-card__context">have used an AI chatbot for emotional support in the last year</div>
+      <!-- Data narrative — embedded in cover story -->
+      <div style="margin-top: clamp(3rem, 5vw, 5rem); position: relative;">
+        <div class="data-nar__header" data-reveal>
+          <p class="mod-label">The Landscape</p>
+          <h2 class="mod-heading data-nar__heading">AI Is Already in Your <em>Waiting Room</em></h2>
+          <p class="data-nar__intro">These aren't projections. This is what's happening right now across the practices we surveyed for this issue.</p>
         </div>
-        <div class="data-card" data-reveal data-delay="2" data-counter="3.2" data-suffix="x" data-decimals="1">
-          <div class="data-card__number">0x</div>
-          <div class="data-card__label">Growth in AI therapy apps</div>
-          <div class="data-card__context">year-over-year, outpacing traditional telehealth platforms</div>
-        </div>
-        <div class="data-card" data-reveal data-delay="3" data-counter="42" data-suffix="%">
-          <div class="data-card__number">0%</div>
-          <div class="data-card__label">Of group practices</div>
-          <div class="data-card__context">report losing at least one client to an AI alternative this quarter</div>
-        </div>
-        <div class="data-card" data-reveal data-delay="4" data-counter="89" data-suffix="%">
-          <div class="data-card__number">0%</div>
-          <div class="data-card__label">Retention rate</div>
-          <div class="data-card__context">for practices integrating AI tools alongside human therapy</div>
+        <div class="data-grid" style="margin-top: 2rem;">
+          <div class="data-card" data-reveal data-delay="1" data-counter="67" data-suffix="%">
+            <div class="data-card__number">0%</div>
+            <div class="data-card__label">Of adults under 35</div>
+            <div class="data-card__context">have used an AI chatbot for emotional support in the last year</div>
+          </div>
+          <div class="data-card" data-reveal data-delay="2" data-counter="3.2" data-suffix="x" data-decimals="1">
+            <div class="data-card__number">0x</div>
+            <div class="data-card__label">Growth in AI therapy apps</div>
+            <div class="data-card__context">year-over-year, outpacing traditional telehealth platforms</div>
+          </div>
+          <div class="data-card" data-reveal data-delay="3" data-counter="42" data-suffix="%">
+            <div class="data-card__number">0%</div>
+            <div class="data-card__label">Of group practices</div>
+            <div class="data-card__context">report losing at least one client to an AI alternative this quarter</div>
+          </div>
+          <div class="data-card" data-reveal data-delay="4" data-counter="89" data-suffix="%">
+            <div class="data-card__number">0%</div>
+            <div class="data-card__label">Retention rate</div>
+            <div class="data-card__context">for practices integrating AI tools alongside human therapy</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1700,11 +1705,10 @@
             <p>The shift started quietly. Google Business profiles began outranking Psychology Today in local search results. Then AI-powered matching platforms like Alma and Headway started routing clients directly to clinicians based on granular fit data — not just "accepts BlueCross" but "specializes in EMDR for complex trauma, available Tuesdays after 5pm, within 15 minutes of your office."</p>
             <p>But the biggest disruptor isn't a platform — it's community. The fastest-growing referral channels in 2026 are peer networks, community partnerships, and what industry insiders call "clinical ecosystems" — groups of practices that refer to each other based on specialty rather than competing for the same generalist clients.</p>
             <p>"We stopped thinking of other practices as competition and started thinking of them as our referral network," says Dr. Anika Patel, who runs a 15-clinician practice in Denver. "We specialize in adolescents. The CBT practice down the street handles adults. We send each other clients all day long. Both our intake numbers doubled."</p>
+            <p>There's also a growing class of "referral concierge" services — platforms that sit between potential clients and practices, handling the matching, insurance verification, and scheduling before anyone picks up the phone. Think of them as the Zillow of therapy: the client describes what they need, the platform finds the three best matches, and the practice gets a warm lead instead of a cold call. Early data suggests these leads convert at nearly double the rate of directory listings.</p>
+            <p>The uncomfortable truth is that most practices are still spending 60-70% of their marketing budget on channels that drove results five years ago. The ROI has shifted, and the practices that are growing fastest have shifted with it. They're not spending more — they're spending differently.</p>
+            <p>The practices winning the referral game share three traits: they've invested in their Google presence, they've built reciprocal relationships with complementary practices, and they track where every new client comes from. The ones still waiting for Psychology Today to do the work are the ones wondering why the phones stopped ringing.</p>
           </div>
-          <button class="read-btn" data-reveal data-delay="3">
-            Continue Reading
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
         </div>
         <aside class="sidebar">
           <div class="side-card" data-reveal>
@@ -1750,12 +1754,10 @@
             <p>We surveyed 1,800 therapy clients who had tried at least one AI mental health tool. The results surprised us. 74% said the AI was "helpful for coping between sessions" but only 11% said it could replace their therapist. The most common word they used to describe the difference? <em>Seen.</em></p>
             <p>"The chatbot helps me organize my thoughts," one respondent wrote. "My therapist helps me understand why I'm having them." Another: "AI doesn't remember that I cried about my dad last week and gently come back to it. My therapist does."</p>
             <p>The practices with the highest retention rates aren't fighting AI — they're leveraging the contrast. They're doubling down on what makes human therapy irreplaceable: relational depth, pattern recognition across sessions, the ability to sit with discomfort rather than optimize it away, and the simple power of being genuinely known by another person.</p>
+            <p>The practices with the highest retention rates are also rethinking the between-session experience entirely. They're sending personalized check-ins — not automated "how are you feeling?" texts, but genuine notes that reference what happened in the last session. They're using platforms that flag early warning signs of disengagement: a cancelled appointment, a shorter session, a shift in tone. By the time a client ghosts, high-retention practices have already intervened twice.</p>
+            <p>Perhaps most importantly, the best practices are creating what one owner called "return pathways" — making it easy and stigma-free for clients who pause therapy to come back. "We stopped treating a missed month like a failure," says Dr. Kenji Watanabe, who runs a 9-clinician practice in Portland. "We started treating it like a normal part of the healing process. Our return rate went from 15% to 41%."</p>
             <p>The data is clear: practices that acknowledge AI's role in the ecosystem and position themselves as the premium, irreplaceable layer see <strong>89% retention</strong> at 6 months. Those that ignore it or compete on convenience alone? 61%.</p>
           </div>
-          <button class="read-btn" data-reveal data-delay="3">
-            Continue Reading
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
         </div>
         <aside class="sidebar">
           <div class="side-card" data-reveal>
@@ -1795,12 +1797,10 @@
             <p>Our analysis of 2,400 group practices reveals five distinct clinician profiles most likely to leave within the next twelve months. Understanding these archetypes isn't just about retention metrics — it's about building a practice culture where talented therapists actually want to stay.</p>
             <p>The <strong>Quiet Achiever</strong> bills consistently, rarely complains, and never asks for a raise. They're your most dangerous flight risk precisely because you've never had to worry about them. The <strong>Mission-Driven Idealist</strong> joined your practice to change lives and now spends 40% of their time on documentation. The gap between their vision and their reality widens every quarter.</p>
             <p>Then there's the <strong>Side-Hustle Builder</strong>, quietly growing a private-pay caseload on Psychology Today. The <strong>Burned-Out Veteran</strong> with 15 years of experience and mounting compassion fatigue. And the <strong>Digital Native</strong>, the younger clinician watching AI tools emerge and wondering why your practice still uses fax machines.</p>
+            <p>The Quiet Achiever needs recognition — not a pizza party, but a genuine conversation about their trajectory and what they want next. The Mission-Driven Idealist needs less admin and more clinical autonomy; cut their documentation burden by even 20% and watch the shift. The Side-Hustle Builder needs a compensation conversation before they do the math on going solo. The Burned-Out Veteran needs a reduced caseload and a supervisory role that honors their experience. The Digital Native needs to see that your practice is evolving, not fossilizing.</p>
+            <p>The common thread across all five? None of them will ask for what they need. They'll just leave. The practice owners who retain their best clinicians are the ones who initiate these conversations proactively — not in an annual review, but in the weekly rhythms of running a practice. A 15-minute check-in costs you nothing. A resignation letter costs you $40,000.</p>
             <p>The good news? Each of these archetypes responds to different interventions, and most of them are simpler than you'd expect.</p>
           </div>
-          <button class="read-btn" data-reveal data-delay="3">
-            Continue Reading
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
         </div>
         <aside class="sidebar">
           <div class="side-card" data-reveal>
@@ -1840,11 +1840,10 @@
             <p>The biggest change: <strong>CPT 98978-98981</strong>, the new series for remote therapeutic monitoring. If your clinicians are using any digital tools between sessions — mood tracking apps, journaling platforms, even structured homework — these codes let you bill for the clinical review of that data. Most practices we spoke with aren't using them yet. The ones that are report an average of <strong>$1,200–$2,400 per clinician per month</strong> in additional revenue.</p>
             <p>Then there's the updated collaborative care codes (99492-99494), which now explicitly cover AI-assisted care coordination. If you're using a platform like Cortexa to route intakes or flag at-risk clients, the clinical review of those AI-generated insights is billable under these codes.</p>
             <p>The catch? Documentation requirements are strict. "You can't just check a box," says billing consultant Maria Torres. "You need to document the clinical decision-making that happened as a result of reviewing the data. The AI flagged it — but what did the clinician <em>do</em> with that information?"</p>
+            <p>Torres recommends a simple framework she calls "Flag, Think, Act" — document what the technology flagged, what the clinician's clinical reasoning was, and what action they took as a result. "That three-sentence structure turns a denied claim into a paid one," she says. "I've seen it work across every major payer."</p>
+            <p>There's also a sleeper code that most practices overlook entirely: <strong>90899</strong>, the unlisted psychiatric service code. It's a catch-all that can cover digital therapeutics, AI-assisted treatment planning, and other emerging modalities that don't yet have dedicated codes. It requires a detailed description with each claim, but practices using it report approval rates above 70% with commercial payers — significantly higher than expected for an unlisted code.</p>
+            <p>Our advice: pick one new code, train your team on proper documentation, and pilot it with three clinicians for a month. The revenue impact will speak for itself — and give you the data you need to roll it out practice-wide.</p>
           </div>
-          <button class="read-btn" data-reveal data-delay="3">
-            Continue Reading
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
         </div>
         <aside class="sidebar">
           <div class="side-card" data-reveal>
@@ -1882,7 +1881,8 @@
             <p class="dropcap">You didn't get into this field to read about CPT codes at midnight. You got into it because someone once sat across from you and said something true, and you knew — in your body — that this was the work you were meant to do. Then you opened a practice, hired clinicians, and discovered that running a business is its own kind of therapy: mostly listening, often frustrating, occasionally transformative.</p>
             <p>Practice Insider exists because we believe group practice owners deserve a publication that takes both sides of that work seriously — the clinical mission and the business reality. Not a blog with recycled SEO content. Not a vendor newsletter dressed up as journalism. A real magazine, with real reporting, written for people who are building something meaningful.</p>
             <p>Every article in this issue was reported from conversations with practice owners, clinicians, and industry experts. We don't take paid placements. When we cover a product — like Cortexa in this issue — it's because it earned the attention.</p>
-            <p>We're just getting started. Next month we're diving into Telehealth 3.0, the hiring crisis, and what the best practices in the country are doing differently with onboarding. If you have a story, a question, or a strong opinion — we want to hear it.</p>
+            <p>This first issue was shaped by conversations with over 40 practice owners across 18 states. What struck us most wasn't the variation in how they run their practices — it was the consistency of what keeps them up at night. AI disruption. Clinician retention. The feeling of building something important while simultaneously drowning in operational complexity. You are not alone in any of it.</p>
+            <p>We're just getting started. Next month we're diving into Telehealth 3.0, the hiring crisis, and what the best practices in the country are doing differently with onboarding. If you have a story, a question, or a strong opinion — we want to hear it. This magazine is a conversation, not a lecture.</p>
             <p>Thank you for reading. Now go do the work that matters.</p>
           </div>
         </div>
